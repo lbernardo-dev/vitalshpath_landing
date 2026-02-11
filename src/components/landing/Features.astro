@@ -6,133 +6,111 @@ const { lang = 'es' } = Astro.props;
 const t = useTranslations(lang);
 ---
 
-<section id="features" class="py-24 relative bg-gray-50/50 dark:bg-black/20">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    
-    <div class="text-center mb-16">
-      <span class="text-primary font-bold tracking-wider uppercase text-sm mb-2 block">{t('features.title')}</span>
-      <h2 class="text-3xl md:text-5xl font-extrabold mb-4 text-gray-900 dark:text-white">
-        {t('features.subtitle')}
-      </h2>
+<section id="features" class="section-padding relative overflow-hidden">
+  
+  <div class="container-width relative z-10">
+    <div class="text-center mb-20">
+      <h2 class="text-premium-title mb-6">{t('features.subtitle')}</h2>
+      <p class="text-premium-body max-w-2xl mx-auto">{t('features.title')}</p>
     </div>
 
-    <!-- Bento Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[minmax(180px,auto)]">
+    <!-- Features Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       
-      <!-- Feature 1: Multi-Profile & Wellness (Large) -->
-      <div class="glass-card p-8 md:col-span-2 md:row-span-2 flex flex-col justify-between relative overflow-hidden group hover:border-blue-200 dark:hover:border-blue-900/50 transition-colors">
-        <div class="z-10 mb-6">
-          <div class="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-600 mb-4 group-hover:scale-110 transition-transform">
-            <Users className="w-6 h-6" />
+      <!-- Feature 1: Wellness (Large) -->
+      <div class="glass-card col-span-1 md:col-span-2 row-span-2 p-8 flex flex-col justify-between group">
+        <div class="mb-8">
+          <div class="w-14 h-14 bg-blue-500/10 rounded-full flex items-center justify-center text-blue-600 mb-6">
+            <Users className="w-7 h-7" />
           </div>
-          <h3 class="text-2xl font-bold mb-2 text-gray-900 dark:text-white">{t('feature.profiles.title')}</h3>
-          <p class="text-gray-500 dark:text-gray-400 mb-6 max-w-sm">
+          <h3 class="text-3xl font-semibold mb-3 tracking-tight text-text-primary-light dark:text-text-primary-dark">{t('feature.profiles.title')}</h3>
+          <p class="text-lg text-text-secondary-light dark:text-text-secondary-dark leading-relaxed max-w-md">
             {t('feature.profiles.desc')}
           </p>
         </div>
         
-        <!-- Extracted Wellness Visualization -->
-        <div class="relative h-64 bg-gray-50 dark:bg-gray-800/50 rounded-2xl overflow-hidden border border-gray-100 dark:border-white/5 group-hover:shadow-lg transition-all duration-500">
+        <div class="relative h-[300px] w-full rounded-2xl overflow-hidden shadow-lg border border-black/5 dark:border-white/5 mt-auto">
              <img src={`${import.meta.env.BASE_URL}/assets/images/feature-wellness.png`} class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700" alt="Wellness Dashboard" />
-             <!-- Overlay Gradient -->
-             <div class="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white dark:from-zinc-900 to-transparent"></div>
         </div>
       </div>
 
-      <!-- Feature 2: Smart Scheduler (Tall) -->
-      <div class="glass-card p-0 md:col-span-1 md:row-span-2 flex flex-col relative overflow-hidden group hover:border-purple-200 dark:hover:border-purple-900/50 transition-colors">
-        <div class="p-6 pb-0 z-10">
-            <div class="absolute top-0 right-0 bg-purple text-white text-xs font-bold px-3 py-1 rounded-bl-xl z-20">
-            {t('feature.scheduler.tag')}
+      <!-- Feature 2: Smart Scheduler -->
+      <div class="glass-card p-8 flex flex-col group relative overflow-hidden">
+         <div class="mb-6 relative z-10">
+            <div class="w-12 h-12 bg-purple/10 rounded-full flex items-center justify-center text-purple mb-4">
+              <Brain className="w-6 h-6" />
             </div>
-            <div class="w-12 h-12 bg-purple/10 rounded-2xl flex items-center justify-center text-purple mb-4 group-hover:scale-110 transition-transform">
-            <Brain className="w-6 h-6" />
-            </div>
-            <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">{t('feature.scheduler.title')}</h3>
-            <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">
-            {t('feature.scheduler.desc')}
-            </p>
-        </div>
-        
-        <!-- Extracted Scheduler Visualization -->
-        <div class="flex-1 bg-gray-50 dark:bg-black/20 relative overflow-hidden mt-4">
-             <img src={`${import.meta.env.BASE_URL}/assets/images/feature-scheduler.png`} class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700" alt="Smart Scheduler Interface" />
-             <div class="absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-white dark:from-zinc-900 to-transparent"></div>
-        </div>
+            <h3 class="text-xl font-semibold mb-2 text-text-primary-light dark:text-text-primary-dark">{t('feature.scheduler.title')}</h3>
+            <p class="text-text-secondary-light dark:text-text-secondary-dark">{t('feature.scheduler.desc')}</p>
+         </div>
+         <div class="mt-4 h-40 w-full rounded-xl overflow-hidden shadow-sm opacity-90 relative z-0">
+             <img src={`${import.meta.env.BASE_URL}/assets/images/feature-scheduler.png`} class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700" />
+         </div>
       </div>
 
       <!-- Feature 3: Medications -->
-      <div class="glass-card p-6 md:col-span-1 flex flex-col justify-between group hover:border-orange-200 dark:hover:border-orange-900/50 transition-colors relative overflow-hidden">
-        <div class="z-10">
-          <div class="w-10 h-10 bg-orange-100 dark:bg-orange-900/30 rounded-xl flex items-center justify-center text-orange-500 mb-3 group-hover:rotate-12 transition-transform">
-             <Pill className="w-5 h-5" />
-          </div>
-          <h3 class="text-lg font-bold text-gray-900 dark:text-white">{t('feature.medications.title')}</h3>
-        </div>
-        <p class="text-sm text-gray-500 dark:text-gray-400 mt-2 z-10 relative">{t('feature.medications.desc')}</p>
-        
-        <!-- Absolute Image Background (Subtle) -->
-        <div class="absolute -right-4 -bottom-4 w-24 h-24 opacity-10 dark:opacity-20 rotate-12 group-hover:scale-110 transition-transform duration-500">
-             <img src={`${import.meta.env.BASE_URL}/assets/images/feature-meds.png`} class="w-full h-full object-cover rounded-lg" alt="Pill Icon" />
-        </div>
-      </div>
-
-      <!-- Feature 4: Symptoms -->
-      <div class="glass-card p-0 md:col-span-1 flex flex-col justify-between group hover:border-red-200 dark:hover:border-red-900/50 transition-colors overflow-hidden">
-         <div class="p-6 relative z-10">
-            <div class="w-10 h-10 bg-red-100 dark:bg-red-900/30 rounded-xl flex items-center justify-center text-red-500 mb-3 group-hover:scale-110 transition-transform">
-                <Thermometer className="w-5 h-5" />
+      <div class="glass-card p-8 flex flex-col group relative overflow-hidden">
+         <div class="mb-6 relative z-10">
+            <div class="w-12 h-12 bg-orange-500/10 rounded-full flex items-center justify-center text-orange-500 mb-4">
+              <Pill className="w-6 h-6" />
             </div>
-            <h3 class="text-lg font-bold text-gray-900 dark:text-white">{t('feature.symptoms.title')}</h3>
-            <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">{t('feature.symptoms.desc')}</p>
+            <h3 class="text-xl font-semibold mb-2 text-text-primary-light dark:text-text-primary-dark">{t('feature.medications.title')}</h3>
+            <p class="text-text-secondary-light dark:text-text-secondary-dark">{t('feature.medications.desc')}</p>
          </div>
-         <!-- Small Preview Strip -->
-         <div class="h-20 w-full overflow-hidden opacity-80">
-            <img src={`${import.meta.env.BASE_URL}/assets/images/feature-symptoms.png`} class="w-full object-cover object-top hover:scale-110 transition-transform duration-700" alt="Symptoms Chart" />
+         <div class="absolute bottom-[-10px] right-[-10px] w-32 h-32 opacity-10 rotate-12">
+             <img src={`${import.meta.env.BASE_URL}/assets/images/feature-meds.png`} class="w-full h-full object-cover" />
          </div>
       </div>
 
-      <!-- Feature 5: Medical Calendar -->
-      <div class="glass-card p-6 md:col-span-2 flex items-center gap-6 group hover:border-red-200 dark:hover:border-red-900/50 transition-colors">
-        <div class="flex-1">
-          <div class="w-10 h-10 bg-red-100 dark:bg-red-900/20 rounded-xl flex items-center justify-center text-red-500 mb-3 group-hover:scale-110 transition-transform">
-            <Calendar className="w-6 h-6" />
+      <!-- Feature 4: Symptoms (with graphical preview) -->
+      <div class="glass-card p-0 col-span-1 flex flex-col justify-between overflow-hidden group">
+         <div class="p-8">
+            <div class="w-12 h-12 bg-red-500/10 rounded-full flex items-center justify-center text-red-500 mb-4">
+                <Thermometer className="w-6 h-6" />
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-text-primary-light dark:text-text-primary-dark">{t('feature.symptoms.title')}</h3>
+            <p class="text-text-secondary-light dark:text-text-secondary-dark">{t('feature.symptoms.desc')}</p>
+         </div>
+         <div class="h-32 w-full mt-auto opacity-80 border-t border-black/5 dark:border-white/5">
+            <img src={`${import.meta.env.BASE_URL}/assets/images/feature-symptoms.png`} class="w-full h-full object-cover object-top" />
+         </div>
+      </div>
+
+      <!-- Additional Features List (Compact) -->
+      <div class="glass-card col-span-1 md:col-span-2 lg:col-span-1 p-8 flex flex-col gap-6 justify-center">
+         <div class="flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center text-green-600 shrink-0"><ClipboardList className="w-5 h-5"/></div>
+            <div>
+               <h4 class="font-semibold text-text-primary-light dark:text-text-primary-dark">{t('feature.plans.title')}</h4>
+               <p class="text-sm text-text-secondary-light dark:text-text-secondary-dark mt-1">{t('feature.plans.desc')}</p>
+            </div>
+         </div>
+         <div class="flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-full bg-yellow-500/10 flex items-center justify-center text-yellow-600 shrink-0"><Stethoscope className="w-5 h-5"/></div>
+            <div>
+               <h4 class="font-semibold text-text-primary-light dark:text-text-primary-dark">{t('feature.conditions.title')}</h4>
+               <p class="text-sm text-text-secondary-light dark:text-text-secondary-dark mt-1">{t('feature.conditions.desc')}</p>
+            </div>
+         </div>
+      </div>
+
+      <!-- Calendar Feature -->
+      <div class="glass-card col-span-1 md:col-span-2 p-8 flex items-center gap-8 group">
+          <div class="flex-1">
+             <div class="w-12 h-12 bg-indigo-500/10 rounded-full flex items-center justify-center text-indigo-600 mb-4">
+                <Calendar className="w-6 h-6" />
+             </div>
+             <h3 class="text-2xl font-semibold mb-2 text-text-primary-light dark:text-text-primary-dark">{t('feature.calendar.title')}</h3>
+             <p class="text-text-secondary-light dark:text-text-secondary-dark">{t('feature.calendar.desc')}</p>
           </div>
-          <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">{t('feature.calendar.title')}</h3>
-          <p class="text-gray-500 dark:text-gray-400 text-sm">
-            {t('feature.calendar.desc')}
-          </p>
-        </div>
-        <div class="w-1/3 h-24 bg-gray-50 dark:bg-zinc-800 rounded-xl border border-gray-100 dark:border-white/5 relative overflow-hidden hidden sm:block p-2">
-           <div class="grid grid-cols-7 gap-1 h-full opacity-60">
-             {Array.from({length: 21}).map((_, i) => (
-               <div class={`rounded-sm ${i === 10 ? 'bg-red-500 shadow-sm scale-110' : 'bg-gray-200 dark:bg-gray-600'} w-full aspect-square`}></div>
-             ))}
-           </div>
-        </div>
+          <div class="hidden sm:block w-40 h-32 bg-surface-light dark:bg-surface-dark rounded-xl border border-black/5 dark:border-white/5 p-3 rotate-3 group-hover:rotate-0 transition-transform duration-500">
+             <div class="grid grid-cols-7 gap-1 h-full opacity-50">
+                {Array.from({length: 28}).map((_, i) => (
+                   <div class={`rounded-[2px] w-full h-full ${i === 12 ? 'bg-primary' : 'bg-gray-200 dark:bg-gray-600'}`}></div>
+                ))}
+             </div>
+          </div>
       </div>
-
-       <!-- Feature 6: Medical Plans -->
-       <div class="glass-card p-6 md:col-span-1 flex flex-col justify-between group hover:border-green-200 dark:hover:border-green-900/50 transition-colors">
-        <div>
-           <div class="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center text-green-500 mb-3 group-hover:scale-110 transition-transform">
-               <ClipboardList className="w-5 h-5" />
-           </div>
-           <h3 class="text-lg font-bold text-gray-900 dark:text-white">{t('feature.plans.title')}</h3>
-        </div>
-        <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">{t('feature.plans.desc')}</p>
-     </div>
-
-     <!-- Feature 7: Conditions -->
-     <div class="glass-card p-6 md:col-span-1 flex flex-col justify-between group hover:border-yellow-200 dark:hover:border-yellow-900/50 transition-colors">
-        <div>
-           <div class="w-10 h-10 bg-yellow-100 dark:bg-yellow-900/30 rounded-xl flex items-center justify-center text-yellow-500 mb-3 group-hover:rotate-12 transition-transform">
-               <Stethoscope className="w-5 h-5" />
-           </div>
-           <h3 class="text-lg font-bold text-gray-900 dark:text-white">{t('feature.conditions.title')}</h3>
-        </div>
-        <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">{t('feature.conditions.desc')}</p>
-     </div>
 
     </div>
   </div>

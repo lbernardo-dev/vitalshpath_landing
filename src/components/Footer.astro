@@ -6,27 +6,25 @@ const { lang = 'es' } = Astro.props;
 const t = useTranslations(lang);
 ---
 
-<footer class="bg-[#0F172A] border-t border-white/5 pt-16 pb-8 text-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<footer class="bg-bg-light dark:bg-bg-dark border-t border-black/5 dark:border-white/5 pt-16 pb-8">
+  <div class="container-width">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
       
       <!-- Column 1: Brand -->
       <div class="col-span-1 md:col-span-1">
-        <a href="#" class="flex items-center gap-2 mb-4">
-            <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-primary to-orange-400 flex items-center justify-center text-white font-bold text-lg">
-                VP
-            </div>
-            <span class="text-xl font-bold">VitalsPath</span>
+        <a href="#" class="flex items-center gap-3 mb-4 group">
+            <img src={`${import.meta.env.BASE_URL}/assets/images/Icon.png`} alt="VitalsPath Logo" class="w-8 h-8 rounded-lg shadow-sm group-hover:scale-105 transition-transform" />
+            <span class="text-xl font-semibold tracking-tight text-text-primary-light dark:text-text-primary-dark">VitalsPath</span>
         </a>
-        <p class="text-gray-400 text-sm leading-relaxed">
+        <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm leading-relaxed">
           {t('hero.subtitle')}
         </p>
       </div>
 
       <!-- Column 2: Product -->
       <div>
-        <h4 class="font-bold mb-4">{t('footer.product')}</h4>
-        <ul class="space-y-2 text-sm text-gray-400">
+        <h4 class="font-semibold mb-4 text-text-primary-light dark:text-text-primary-dark">{t('footer.product')}</h4>
+        <ul class="space-y-3 text-sm text-text-secondary-light dark:text-text-secondary-dark">
           <li><a href="#features" class="hover:text-primary transition-colors">{t('nav.features')}</a></li>
           <li><a href="#pricing" class="hover:text-primary transition-colors">{t('pricing.title')}</a></li>
         </ul>
@@ -34,8 +32,8 @@ const t = useTranslations(lang);
 
       <!-- Column 3: Legal -->
       <div>
-        <h4 class="font-bold mb-4">{t('footer.legal')}</h4>
-        <ul class="space-y-2 text-sm text-gray-400">
+        <h4 class="font-semibold mb-4 text-text-primary-light dark:text-text-primary-dark">{t('footer.legal')}</h4>
+        <ul class="space-y-3 text-sm text-text-secondary-light dark:text-text-secondary-dark">
           <li><a href="#" class="hover:text-primary transition-colors">{t('footer.privacy')}</a></li>
           <li><a href="#" class="hover:text-primary transition-colors">{t('footer.terms')}</a></li>
         </ul>
@@ -43,23 +41,23 @@ const t = useTranslations(lang);
 
       <!-- Column 4: Social -->
       <div>
-        <h4 class="font-bold mb-4">Conecta</h4>
+        <h4 class="font-semibold mb-4 text-text-primary-light dark:text-text-primary-dark">Conecta</h4>
         <div class="flex gap-4">
-          <a href="#" class="text-gray-400 hover:text-primary transition-colors"><Twitter className="w-5 h-5" /></a>
-          <a href="#" class="text-gray-400 hover:text-primary transition-colors"><Github className="w-5 h-5" /></a>
-          <a href="#" class="text-gray-400 hover:text-primary transition-colors"><Linkedin className="w-5 h-5" /></a>
+          <a href="#" class="text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-all hover:-translate-y-1"><Twitter className="w-5 h-5" /></a>
+          <a href="#" class="text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-all hover:-translate-y-1"><Github className="w-5 h-5" /></a>
+          <a href="#" class="text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-all hover:-translate-y-1"><Linkedin className="w-5 h-5" /></a>
         </div>
       </div>
     </div>
 
-    <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-      <p class="text-sm text-gray-500">
+    <div class="border-t border-black/5 dark:border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-text-secondary-light dark:text-text-secondary-dark">
         © 2026 VitalsPath. {t('footer.rights')}
       </p>
-      <div class="flex items-center gap-1 text-sm text-gray-500">
-        <span>Hecho con</span>
-        <Heart className="w-4 h-4 text-red-500 fill-current animate-pulse" />
-        <span>y SwiftUI por Lester Romero</span>
+      <div class="flex items-center gap-1 text-xs text-text-secondary-light dark:text-text-secondary-dark">
+        <span>Diseñado con precisión en</span>
+        <Heart className="w-3 h-3 text-red-500 fill-current" />
+        <span>SwiftUI</span>
       </div>
     </div>
   </div>

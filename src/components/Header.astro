@@ -12,50 +12,46 @@ const togglePath = isSpanish ? `${base}/en` : `${base}/`;
 ---
 
 <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="main-header">
-  <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl mt-4">
-    <div class="glass rounded-2xl flex items-center justify-between h-16 px-6 shadow-sm border border-white/40 dark:border-white/10 relative z-50">
+  <div class="glass absolute inset-0 z-0"></div>
+  <div class="container-width relative z-10 flex items-center justify-between h-[72px]">
       
       <!-- Logo -->
-      <a href={isSpanish ? `${base}/` : `${base}/en`} class="flex items-center gap-2 group">
-        <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-primary to-orange-400 flex items-center justify-center text-white font-bold text-lg shadow-lg group-hover:scale-105 transition-transform">
-          VP
-        </div>
-        <span class="text-xl font-bold tracking-tight text-gray-900 dark:text-white">VitalsPath</span>
+      <a href={isSpanish ? `${base}/` : `${base}/en`} class="flex items-center gap-3 group">
+        <img src={`${base}/assets/images/Icon.png`} alt="VitalsPath Logo" class="w-10 h-10 rounded-xl shadow-lg group-hover:scale-105 transition-transform" />
+        <span class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">VitalsPath</span>
       </a>
 
       <!-- Desktop Nav -->
       <nav class="hidden md:flex items-center gap-8">
-        <a href="#features" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">{t('nav.features')}</a>
-        <a href="#scheduler" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">{t('nav.scheduler')}</a>
-        <a href="#privacy" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">{t('nav.privacy')}</a>
-        <a href="#faq" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">{t('nav.faq')}</a>
+        <a href="#features" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">{t('nav.features')}</a>
+        <a href="#scheduler" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">{t('nav.scheduler')}</a>
+        <a href="#privacy" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">{t('nav.privacy')}</a>
+        <a href="#faq" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">{t('nav.faq')}</a>
       </nav>
 
       <!-- Actions -->
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-4">
         <!-- Theme Toggle -->
-        <button id="theme-toggle" class="p-2 rounded-xl text-gray-500 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors" aria-label="Toggle theme">
-          <Sun className="w-5 h-5 hidden dark:block" />
-          <Moon className="w-5 h-5 block dark:hidden" />
+        <button id="theme-toggle" class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors" aria-label="Toggle theme">
+          <Sun className="w-5 h-5 hidden dark:block text-white" />
+          <Moon className="w-5 h-5 block dark:hidden text-gray-900" />
         </button>
 
         <!-- Lang Selector -->
-        <a href={togglePath} class="hidden sm:flex items-center gap-1 p-2 rounded-xl text-gray-500 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors" aria-label={`Switch to ${targetLang}`}>
-          <Languages className="w-4 h-4" />
-          <span class="text-xs font-bold uppercase">{lang}</span>
+        <a href={togglePath} class="hidden sm:flex items-center gap-1 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">
+          <span>{lang === 'es' ? 'EN' : 'ES'}</span>
         </a>
 
         <!-- CTA -->
-        <a href="#waitlist" class="hidden sm:block px-5 py-2.5 bg-primary hover:bg-primary-dark text-white text-sm font-bold rounded-xl hover:shadow-lg hover:scale-105 transition-all active:scale-95 shadow-primary/30 shadow-md">
+        <a href="#waitlist" class="hidden sm:block px-5 py-2.5 bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-full shadow-lg hover:shadow-primary/30 hover:scale-105 transition-all">
           {t('nav.waitlist')}
         </a>
 
         <!-- Mobile Menu Button -->
         <button class="md:hidden p-2" id="mobile-menu-btn">
-          <Menu className="w-6 h-6 text-gray-700 dark:text-white" />
+          <Menu className="w-6 h-6 text-gray-900 dark:text-white" />
         </button>
       </div>
-    </div>
   </div>
 </header>
 
