@@ -1,160 +1,110 @@
 @import "tailwindcss";
 
 @theme {
-  /* VitalsPath Modern SaaS Palette */
-  --color-zinc-950: #09090b;
-  /* Deep Background */
-  --color-zinc-900: #18181b;
-  /* Card Surface */
-  --color-zinc-800: #27272a;
-  /* Border */
-  --color-zinc-400: #a1a1aa;
-  /* Muted Text */
-  --color-zinc-50: #fafafa;
-  /* Heading Text */
+    /* Typography */
+    --font-display: "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: "SF Pro Text", -apple-system, BlinkMacSystemFont, sans-serif;
 
-  --color-violet-500: #8b5cf6;
-  /* Primary Accent */
-  --color-violet-600: #7c3aed;
-  /* Hover Accent */
-  --color-indigo-500: #6366f1;
-  /* Secondary Accent */
+    /* Animations */
+    --animate-float: float 8s ease-in-out infinite;
+    --animate-breathe: breathe 6s ease-in-out infinite;
+    --animate-reveal: reveal 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    --animate-marquee: marquee 60s linear infinite;
 
-  /* Typography - Modern & Tight */
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    @keyframes float {
 
-  /* Animations */
-  --animate-spotlight: spotlight 2s ease .75s 1 forwards;
-  --animate-shimmer: shimmer 2s linear infinite;
-  --animate-marquee: marquee 30s linear infinite;
-  --animate-float: float 6s ease-in-out infinite;
-  --animate-float-delayed: float 6s ease-in-out 3s infinite;
-  --animate-fade-in-up: fadeInUp 0.8s ease-out forwards;
-  --animate-slide-up: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        0%,
+        100% {
+            transform: translateY(0px) rotate(0deg);
+        }
 
-  @keyframes spotlight {
-    0% {
-      opacity: 0;
-      transform: translate(-72%, -62%) scale(0.5);
+        50% {
+            transform: translateY(-20px) rotate(1deg);
+        }
     }
 
-    100% {
-      opacity: 1;
-      transform: translate(-50%, -40%) scale(1);
-    }
-  }
+    @keyframes breathe {
 
-  @keyframes shimmer {
-    from {
-      background-position: 0 0;
-    }
+        0%,
+        100% {
+            transform: scale(1);
+            opacity: 0.5;
+        }
 
-    to {
-      background-position: -200% 0;
-    }
-  }
-
-  @keyframes marquee {
-    from {
-      transform: translateX(0);
+        50% {
+            transform: scale(1.1);
+            opacity: 0.8;
+        }
     }
 
-    to {
-      transform: translateX(-50%);
-    }
-  }
+    @keyframes reveal {
+        from {
+            opacity: 0;
+            transform: translateY(30px) scale(0.98);
+        }
 
-  @keyframes float {
-
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-
-    50% {
-      transform: translateY(-20px);
-    }
-  }
-
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
     }
 
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+    @keyframes marquee {
+        from {
+            transform: translateX(0);
+        }
 
-  @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(40px);
+        to {
+            transform: translateX(-50%);
+        }
     }
-
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
 }
 
-@layer utilities {
+/* Custom Utilities (Inline to avoid build errors) */
+.glass-panel {
+    @apply bg-white/60 backdrop-blur-2xl border border-white/40 rounded-3xl shadow-xl;
+}
 
-  /* Modern Background Gradient */
-  .bg-modern {
-    @apply bg-zinc-950 text-zinc-50;
-    background-image: radial-gradient(circle at center, #18181b 0%, #09090b 100%);
-  }
+.glass-panel:hover {
+    @apply bg-white/70 shadow-2xl transform scale-[1.01] transition-all duration-500 ease-out;
+}
 
-  /* Bento Grid Card */
-  .bento-card {
-    @apply bg-zinc-900/50 backdrop-blur-md rounded-2xl border border-zinc-800 hover:border-zinc-700 transition-all duration-300 relative overflow-hidden;
-  }
+.text-hero {
+    @apply font-bold text-5xl md:text-7xl lg:text-8xl tracking-tight text-black leading-[1.1];
+    font-family: var(--font-display);
+}
 
-  .bento-card::before {
-    content: "";
-    @apply absolute inset-0 bg-gradient-to-t from-violet-500/5 to-transparent opacity-0 transition-opacity duration-300 pointer-events-none;
-  }
+.text-body-lg {
+    @apply text-xl md:text-2xl text-gray-500 font-medium leading-relaxed;
+    font-family: var(--font-body);
+}
 
-  .bento-card:hover::before {
-    @apply opacity-100;
-  }
-
-  /* Gradient Text */
-  .text-gradient-modern {
-    @apply bg-clip-text text-transparent bg-gradient-to-b from-white to-zinc-400;
-  }
-
-  .text-gradient-accent {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-violet-400 to-indigo-400;
-  }
-
-  /* Buttons */
-  .btn-modern-primary {
-    @apply inline-flex items-center justify-center rounded-full bg-white text-black font-semibold px-6 py-3 hover:bg-zinc-200 transition-colors shadow-lg hover:shadow-xl;
-  }
-
-  .btn-modern-secondary {
-    @apply inline-flex items-center justify-center rounded-full bg-zinc-800 text-white font-medium px-6 py-3 border border-zinc-700 hover:bg-zinc-700 hover:border-zinc-600 transition-all;
-  }
+.btn-spatial {
+    @apply inline-flex items-center px-8 py-4 rounded-full bg-black text-white font-medium text-lg transition-transform active:scale-95 shadow-xl hover:shadow-2xl hover:-translate-y-1;
 }
 
 /* Global Reset */
 html {
-  scroll-behavior: smooth;
-  color-scheme: dark;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
 }
 
 body {
-  @apply bg-zinc-950 text-zinc-400 antialiased selection:bg-violet-500/30 selection:text-white;
+    @apply min-h-screen overflow-x-hidden text-gray-900;
+    background-color: #f5f5f7;
+    background-image:
+        radial-gradient(at 0% 0%, rgba(175, 82, 222, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(0, 122, 255, 0.15) 0px, transparent 50%),
+        radial-gradient(at 50% 100%, rgba(90, 200, 250, 0.1) 0px, transparent 50%);
+    background-attachment: fixed;
 }
 
 h1,
 h2,
 h3,
-h4 {
-  @apply text-zinc-50 tracking-tight;
+h4,
+h5,
+h6 {
+    font-family: var(--font-display);
 }

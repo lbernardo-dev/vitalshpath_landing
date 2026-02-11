@@ -5,35 +5,34 @@ const { lang = 'es' } = Astro.props;
 const t = useTranslations(lang);
 ---
 
-<section id="gallery" class="py-24 bg-zinc-950 overflow-hidden relative">
+<section id="gallery" class="py-32 relative overflow-hidden">
     
-    <div class="container mx-auto px-4 text-center mb-16">
-        <h2 class="text-2xl font-bold text-white mb-6">Explora la interfaz</h2>
-        <p class="text-lg text-zinc-400 max-w-2xl mx-auto">Diseñado para ser intuitivo, oscuro y hermoso.</p>
+    <div class="container mx-auto px-6 text-center mb-20">
+        <h2 class="text-3xl font-semibold text-[#1d1d1f] mb-4">Interfaz Cristalina</h2>
+        <p class="text-xl text-[#86868b]">Diseñada para desaparecer y dejar que el contenido brille.</p>
     </div>
     
     <!-- Marquee Container -->
     <div class="relative flex overflow-x-hidden group">
-        <!-- Gradient Overlay Left -->
-        <div class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-zinc-950 to-transparent z-10 pointer-events-none"></div>
+        <!-- Gradient Overlay Left (White fade) -->
+        <div class="absolute left-0 top-0 bottom-0 w-40 bg-gradient-to-r from-[#f5f5f7] to-transparent z-10 pointer-events-none"></div>
         
-        <!-- Marquee Track 1 -->
-        <div class="py-12 animate-marquee whitespace-nowrap flex gap-8">
+        <!-- Marquee Track -->
+        <div class="py-12 animate-marquee whitespace-nowrap flex gap-12">
             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
-               <div class="relative w-[280px] md:w-[320px] aspect-[9/19] rounded-[32px] border-[8px] border-zinc-900 overflow-hidden shadow-2xl shadow-violet-900/10 shrink-0">
+               <div class="relative w-[300px] md:w-[340px] aspect-[9/19] rounded-[40px] border-[12px] border-white shadow-[0_20px_60px_-10px_rgba(0,0,0,0.15)] overflow-hidden shrink-0 transform hover:scale-105 transition-transform duration-500">
                   <img 
                     src={`${import.meta.env.BASE_URL}/assets/images/screens/screen-${i.toString().padStart(2, '0')}.jpg`} 
                     class="w-full h-full object-cover" 
                     alt={`App Screen ${i}`} 
                     loading="lazy"
                   />
-                  <!-- Reflection -->
-                  <div class="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none"></div>
+                  <!-- Glass Glare -->
+                  <div class="absolute inset-0 bg-gradient-to-tr from-white/20 via-transparent to-transparent pointer-events-none"></div>
                </div>
             ))}
-            <!-- Duplicate for Marquee -->
              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
-               <div class="relative w-[280px] md:w-[320px] aspect-[9/19] rounded-[32px] border-[8px] border-zinc-900 overflow-hidden shadow-2xl shadow-violet-900/10 shrink-0">
+                <div class="relative w-[300px] md:w-[340px] aspect-[9/19] rounded-[40px] border-[12px] border-white shadow-[0_20px_60px_-10px_rgba(0,0,0,0.15)] overflow-hidden shrink-0 transform hover:scale-105 transition-transform duration-500">
                   <img 
                     src={`${import.meta.env.BASE_URL}/assets/images/screens/screen-${i.toString().padStart(2, '0')}.jpg`} 
                     class="w-full h-full object-cover" 
@@ -44,7 +43,7 @@ const t = useTranslations(lang);
             ))}
         </div>
         
-        <!-- Gradient Overlay Right -->
-        <div class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-zinc-950 to-transparent z-10 pointer-events-none"></div>
+        <!-- Gradient Overlay Right (White fade) -->
+        <div class="absolute right-0 top-0 bottom-0 w-40 bg-gradient-to-l from-[#f5f5f7] to-transparent z-10 pointer-events-none"></div>
     </div>
 </section>

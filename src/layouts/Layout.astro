@@ -46,12 +46,12 @@ const {
 
     <title>{title}</title>
     
-    <!-- Theme Script: Enforced Modern Dark Mode -->
+    <!-- Theme Script: Spatial Mode (Light/Glass) -->
     <script is:inline>
-      // VitalsPath Modern is exclusively Dark Mode.
-      document.documentElement.classList.add('dark');
+      // VitalsPath Spatial is designed for light/glass aesthetics.
+      document.documentElement.classList.remove('dark');
       if (typeof localStorage !== 'undefined') {
-        localStorage.setItem('theme', 'dark');
+        localStorage.setItem('theme', 'light');
       }
     </script>
   </head>

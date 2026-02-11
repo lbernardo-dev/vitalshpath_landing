@@ -1,120 +1,101 @@
 ---
-import { Users, Brain, Pill, Thermometer, Calendar, HandHeart, Smartphone, ShieldCheck } from "lucide-react";
+import { Users, Brain, Pill, Thermometer, Calendar, HandHeart, Smartphone, ShieldCheck, Zap } from "lucide-react";
 import { useTranslations } from "../../i18n/ui";
 
 const { lang = 'es' } = Astro.props;
 const t = useTranslations(lang);
 ---
 
-<section id="features" class="py-32 bg-zinc-950 relative overflow-hidden">
+<section id="features" class="py-32 relative">
   
-  <div class="container mx-auto px-4 relative z-10">
+  <div class="container mx-auto px-6">
     
-    <div class="text-center mb-20 max-w-3xl mx-auto">
-      <h2 class="text-violet-400 font-semibold tracking-wide uppercase text-sm mb-4">Todo lo que necesitas</h2>
-      <h3 class="text-4xl md:text-5xl font-bold text-white mb-6">Un ecosistema de salud <br /><span class="text-zinc-500">sin precedentes.</span></h3>
-      <p class="text-zinc-400 text-lg leading-relaxed">
-        Diseñado obsesivamente para ser la herramienta definitiva de gestión sanitaria familiar.
-        Potente, privado y hermoso.
+    <div class="mb-24 md:text-center max-w-3xl mx-auto">
+      <h2 class="text-4xl md:text-6xl font-semibold tracking-tight text-[#1d1d1f] mb-6">
+        Potente. Personal. <br />
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">Profundamente humano.</span>
+      </h2>
+      <p class="text-xl text-[#86868b] leading-relaxed">
+        Cada píxel ha sido diseñado para reducir tu carga mental. 
+        VitalsPath no es solo una app, es tu asistente sanitario personal.
       </p>
     </div>
 
-    <!-- Bento Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[300px]">
+    <!-- Spatial Bento Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[350px]">
       
-      <!-- Card 1: Wellness (Large) -->
-      <div class="bento-card col-span-1 md:col-span-2 lg:col-span-2 row-span-2 group">
-        <div class="p-8 h-full flex flex-col justify-between relative z-10">
-            <div>
-                <div class="w-12 h-12 bg-zinc-800 rounded-lg flex items-center justify-center text-white mb-6 group-hover:bg-violet-600 transition-colors">
-                    <Users className="w-6 h-6" />
-                </div>
-                <h3 class="text-2xl font-bold text-white mb-2">Multi-Perfil Real</h3>
-                <p class="text-zinc-400 max-w-sm">
-                    Gestiona la salud de tus hijos, padres y mascotas desde una sola cuenta. Datos aislados y seguros.
-                </p>
-            </div>
-            <div class="relative w-full h-1/2 mt-8 rounded-lg overflow-hidden border border-zinc-800 group-hover:border-violet-500/50 transition-colors">
-                 <img src={`${import.meta.env.BASE_URL}/assets/images/screens/hero-clinical-v1.jpg`} class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
-            </div>
-        </div>
-      </div>
-
-      <!-- Card 2: Smart Scheduler -->
-      <div class="bento-card col-span-1 md:col-span-1 row-span-1 group">
-        <div class="p-6 h-full flex flex-col justify-between relative z-10">
-            <div class="w-10 h-10 bg-zinc-800 rounded-lg flex items-center justify-center text-white mb-4 group-hover:bg-indigo-500 transition-colors">
-                <Brain className="w-5 h-5" />
-            </div>
-            <div>
-                <h3 class="text-lg font-bold text-white">Smart Scheduler</h3>
-                <p class="text-sm text-zinc-500 mt-2">IA que evita conflictos de medicación.</p>
-            </div>
-        </div>
-      </div>
-
-      <!-- Card 3: Medications -->
-      <div class="bento-card col-span-1 md:col-span-1 row-span-1 group">
-        <div class="p-6 h-full flex flex-col justify-between relative z-10">
-             <div class="w-10 h-10 bg-zinc-800 rounded-lg flex items-center justify-center text-white mb-4 group-hover:bg-pink-500 transition-colors">
-                <Pill className="w-5 h-5" />
-            </div>
-            <div>
-                <h3 class="text-lg font-bold text-white">Control de Dosis</h3>
-                <p class="text-sm text-zinc-500 mt-2">Inventario y recordatorios precisos.</p>
-            </div>
-        </div>
-      </div>
-
-       <!-- Card 4: Calendar (Tall) -->
-      <div class="bento-card col-span-1 md:col-span-1 row-span-2 group">
-        <div class="p-6 h-full flex flex-col relative z-10">
-             <div class="w-10 h-10 bg-zinc-800 rounded-lg flex items-center justify-center text-white mb-6 group-hover:bg-cyan-500 transition-colors">
-                <Calendar className="w-5 h-5" />
-            </div>
-            <h3 class="text-xl font-bold text-white mb-2">Agenda</h3>
-            <p class="text-zinc-400 text-sm mb-6">Todas las citas, tomas y síntomas en una vista unificada.</p>
-            
-            <div class="mt-auto relative w-full h-64 bg-zinc-800/50 rounded-lg overflow-hidden border border-zinc-700">
-               <!-- Abstract Calendar Visual -->
-               <div class="absolute inset-2 space-y-2">
-                   <div class="h-2 w-1/2 bg-zinc-700 rounded"></div>
-                   <div class="h-16 w-full bg-violet-500/20 rounded border border-violet-500/30"></div>
-                   <div class="h-16 w-full bg-zinc-700/30 rounded border border-zinc-600/30"></div>
-               </div>
-            </div>
-        </div>
-      </div>
-
-      <!-- Card 5: Symptoms -->
-      <div class="bento-card col-span-1 md:col-span-1 lg:col-span-1 row-span-1 group">
-         <div class="p-6 h-full flex flex-col justify-between relative z-10">
-            <div class="flex justify-between items-start">
-                <div class="w-10 h-10 bg-zinc-800 rounded-lg flex items-center justify-center text-white group-hover:bg-red-500 transition-colors">
-                    <Thermometer className="w-5 h-5" />
-                </div>
-            </div>
-            <div>
-                <h3 class="text-lg font-bold text-white">Síntomas</h3>
-                <p class="text-sm text-zinc-500 mt-1">Registra patrones de dolor y fiebre.</p>
-            </div>
-         </div>
-      </div>
-    
-      <!-- Card 6: Privacy -->
-      <div class="bento-card col-span-1 md:col-span-2 lg:col-span-2 row-span-1 flex items-center p-8 group overflow-hidden">
-          <div class="relative z-10 max-w-md">
-               <div class="inline-flex items-center gap-2 text-green-400 font-bold text-xs uppercase tracking-widest mb-2">
-                    <ShieldCheck className="w-4 h-4" /> Privacidad Primero
-               </div>
-               <h3 class="text-2xl font-bold text-white mb-2">Solo tus datos.</h3>
-               <p class="text-zinc-400">
-                   Almacenamiento local con SwiftData. Sin tracking, sin servidores externos, sin tonterías.
-               </p>
+      <!-- Card 1: Family (Large) -->
+      <div class="glass-panel col-span-1 md:col-span-2 row-span-1 md:row-span-2 p-8 md:p-12 flex flex-col justify-between overflow-hidden relative group">
+          <div class="relative z-10">
+              <div class="w-14 h-14 bg-blue-500 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-blue-500/30">
+                  <Users className="w-7 h-7" />
+              </div>
+              <h3 class="text-3xl font-semibold text-[#1d1d1f] mb-3">Núcleo Familiar</h3>
+              <p class="text-lg text-[#86868b] max-w-md">
+                  Crea perfiles ilimitados. Hijos, padres, abuelos. Cada uno con su propio historial, alergias y doctores. Todo sincronizado, todo privado.
+              </p>
           </div>
-          <div class="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-green-500/10 to-transparent pointer-events-none"></div>
+          
+          <!-- Visual: Profile Stack -->
+          <div class="absolute -right-12 bottom-12 flex flex-col gap-4 opacity-80 group-hover:opacity-100 group-hover:-translate-x-4 transition-all duration-700">
+               <div class="glass-panel p-4 flex items-center gap-4 w-64 transform rotate-[-2deg]">
+                   <div class="w-10 h-10 rounded-full bg-gray-200"></div>
+                   <div><div class="h-2 w-20 bg-gray-200 rounded"></div><div class="h-2 w-12 bg-gray-100 rounded mt-2"></div></div>
+               </div>
+               <div class="glass-panel p-4 flex items-center gap-4 w-64 transform rotate-[2deg] translate-x-8">
+                   <div class="w-10 h-10 rounded-full bg-blue-100"></div>
+                   <div><div class="h-2 w-20 bg-gray-300 rounded"></div><div class="h-2 w-12 bg-gray-200 rounded mt-2"></div></div>
+               </div>
+          </div>
+      </div>
+
+      <!-- Card 2: AI Scheduler -->
+      <div class="glass-panel col-span-1 md:col-span-1 row-span-1 p-8 flex flex-col relative overflow-hidden group">
+          <div class="w-12 h-12 bg-purple-500 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-purple-500/30 relative z-10">
+              <Brain className="w-6 h-6" />
+          </div>
+          <h3 class="text-2xl font-semibold text-[#1d1d1f] mb-2 relative z-10">Smart AI</h3>
+          <p class="text-[#86868b] relative z-10">Detecta conflictos entre medicamentos automáticamente.</p>
+          
+          <div class="absolute top-0 right-0 w-32 h-32 bg-purple-400/20 rounded-full blur-3xl -mr-10 -mt-10 group-hover:scale-150 transition-transform duration-700"></div>
+      </div>
+
+      <!-- Card 3: Privacy (Shield) -->
+      <div class="glass-panel col-span-1 md:col-span-1 row-span-1 p-8 flex flex-col relative overflow-hidden group">
+           <div class="w-12 h-12 bg-green-500 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-green-500/30 relative z-10">
+              <ShieldCheck className="w-6 h-6" />
+          </div>
+          <h3 class="text-2xl font-semibold text-[#1d1d1f] mb-2 relative z-10">SwiftData Safe</h3>
+          <p class="text-[#86868b] relative z-10">Tus datos nunca salen de tu dispositivo. Encriptación local.</p>
+           <div class="absolute bottom-0 right-0 w-32 h-32 bg-green-400/20 rounded-full blur-3xl -mr-10 -mb-10 group-hover:scale-150 transition-transform duration-700"></div>
+      </div>
+
+       <!-- Card 4: Timeline (Tall) -->
+      <div class="glass-panel col-span-1 md:col-span-1 row-span-2 p-8 relative overflow-hidden group">
+           <div class="relative z-10 h-full flex flex-col">
+               <div class="w-12 h-12 bg-orange-500 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-orange-500/30">
+                  <Calendar className="w-6 h-6" />
+              </div>
+              <h3 class="text-2xl font-semibold text-[#1d1d1f] mb-2">Línea de Vida</h3>
+              <p class="text-[#86868b] mb-8">Un feed infinito con todos los eventos de salud de tu familia.</p>
+              
+              <!-- Abstract Timeline Visual -->
+              <div class="flex-1 border-l-2 border-gray-100 pl-6 space-y-6">
+                  <div class="relative">
+                      <div class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-blue-500 border-4 border-white shadow-sm"></div>
+                      <div class="h-2 w-24 bg-gray-200 rounded mb-2"></div>
+                      <div class="h-16 w-full bg-white rounded-xl shadow-sm border border-gray-100"></div>
+                  </div>
+                  <div class="relative opacity-50">
+                      <div class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-gray-300 border-4 border-white shadow-sm"></div>
+                      <div class="h-2 w-24 bg-gray-200 rounded mb-2"></div>
+                      <div class="h-16 w-full bg-white rounded-xl shadow-sm border border-gray-100"></div>
+                  </div>
+              </div>
+           </div>
       </div>
 
     </div>
+
   </div>
 </section>
