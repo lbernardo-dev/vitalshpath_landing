@@ -1,5 +1,5 @@
 ---
-import { Users, Bell, ShieldCheck, Activity, Calendar, FileText, Brain, HeartPulse } from "lucide-react";
+import { Users, Bell, ShieldCheck, Activity, Calendar, FileText, Brain, HeartPulse, Pill, Stethoscope, ClipboardList, Thermometer } from "lucide-react";
 import { useTranslations } from "../../i18n/ui";
 
 const { lang = 'es' } = Astro.props;
@@ -74,24 +74,26 @@ const t = useTranslations(lang);
         </div>
       </div>
 
-      <!-- Feature 3: Notifications -->
+      <!-- Feature 3: Medications -->
       <div class="glass-card p-6 flex flex-col justify-between group hover:border-orange-200 dark:hover:border-orange-900/50 transition-colors">
         <div>
           <div class="w-10 h-10 bg-orange-100 dark:bg-orange-900/30 rounded-xl flex items-center justify-center text-orange-500 mb-3 group-hover:rotate-12 transition-transform">
-             <Bell className="w-5 h-5" />
+             <Pill className="w-5 h-5" />
           </div>
-          <h3 class="text-lg font-bold text-gray-900 dark:text-white">{t('feature.reminder.title')}</h3>
+          <h3 class="text-lg font-bold text-gray-900 dark:text-white">{t('feature.medications.title')}</h3>
         </div>
-        <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">{t('feature.reminder.desc')}</p>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">{t('feature.medications.desc')}</p>
       </div>
 
-      <!-- Feature 4: Live Activities (Visual heavy) -->
-      <div class="glass-card p-0 md:col-span-1 md:row-span-1 flex items-center justify-center relative overflow-hidden group">
-         <div class="absolute inset-0 bg-gradient-to-br from-indigo-500 to-purple-600 opacity-90"></div>
-         <div class="z-10 text-center p-4">
-            <Activity className="w-8 h-8 text-white mx-auto mb-2 opacity-80 group-hover:opacity-100 transition-opacity" />
-            <h3 class="text-lg font-bold text-white">{t('feature.widgets.title')}</h3>
+      <!-- Feature 4: Symptoms -->
+      <div class="glass-card p-6 md:col-span-1 flex flex-col justify-between group hover:border-red-200 dark:hover:border-red-900/50 transition-colors">
+         <div>
+            <div class="w-10 h-10 bg-red-100 dark:bg-red-900/30 rounded-xl flex items-center justify-center text-red-500 mb-3 group-hover:scale-110 transition-transform">
+                <Thermometer className="w-5 h-5" />
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 dark:text-white">{t('feature.symptoms.title')}</h3>
          </div>
+         <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">{t('feature.symptoms.desc')}</p>
       </div>
 
       <!-- Feature 5: Medical Calendar -->
@@ -114,22 +116,27 @@ const t = useTranslations(lang);
         </div>
       </div>
 
-      <!-- Feature 6: Wellness Score -->
-      <div class="glass-card p-6 text-center group hover:border-green-200 dark:hover:border-green-900/50 transition-colors">
-        <div class="relative w-16 h-16 mx-auto mb-3 flex items-center justify-center">
-            <!-- CSS Rings -->
-            <div class="absolute inset-0 rounded-full border-4 border-gray-100 dark:border-gray-800"></div>
-            <div class="absolute inset-0 rounded-full border-4 border-green-500 border-t-transparent animate-spin" style="animation-duration: 3s;"></div>
-            <HeartPulse className="w-6 h-6 text-green-500" />
+       <!-- Feature 6: Medical Plans -->
+       <div class="glass-card p-6 md:col-span-1 flex flex-col justify-between group hover:border-green-200 dark:hover:border-green-900/50 transition-colors">
+        <div>
+           <div class="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center text-green-500 mb-3 group-hover:scale-110 transition-transform">
+               <ClipboardList className="w-5 h-5" />
+           </div>
+           <h3 class="text-lg font-bold text-gray-900 dark:text-white">{t('feature.plans.title')}</h3>
         </div>
-        <h3 class="text-lg font-bold text-gray-900 dark:text-white">{t('feature.wellness.title')}</h3>
-      </div>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">{t('feature.plans.desc')}</p>
+     </div>
 
-      <!-- Feature 7: Reports -->
-      <div class="glass-card p-6 flex flex-col justify-center items-center text-center group hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
-        <FileText className="w-10 h-10 text-gray-400 group-hover:text-primary transition-colors mb-3" />
-        <h3 class="text-lg font-bold text-gray-900 dark:text-white">{t('feature.reports.title')}</h3>
-      </div>
+     <!-- Feature 7: Conditions -->
+     <div class="glass-card p-6 md:col-span-1 flex flex-col justify-between group hover:border-yellow-200 dark:hover:border-yellow-900/50 transition-colors">
+        <div>
+           <div class="w-10 h-10 bg-yellow-100 dark:bg-yellow-900/30 rounded-xl flex items-center justify-center text-yellow-500 mb-3 group-hover:rotate-12 transition-transform">
+               <Stethoscope className="w-5 h-5" />
+           </div>
+           <h3 class="text-lg font-bold text-gray-900 dark:text-white">{t('feature.conditions.title')}</h3>
+        </div>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">{t('feature.conditions.desc')}</p>
+     </div>
 
     </div>
   </div>

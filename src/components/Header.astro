@@ -7,7 +7,8 @@ const t = useTranslations(lang);
 
 const isSpanish = lang === 'es';
 const targetLang = isSpanish ? 'en' : 'es';
-const togglePath = isSpanish ? '/en' : '/';
+const base = import.meta.env.BASE_URL;
+const togglePath = isSpanish ? `${base}/en` : `${base}/`;
 ---
 
 <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="main-header">
@@ -15,7 +16,7 @@ const togglePath = isSpanish ? '/en' : '/';
     <div class="glass rounded-2xl flex items-center justify-between h-16 px-6 shadow-sm border border-white/40 dark:border-white/10 relative z-50">
       
       <!-- Logo -->
-      <a href={isSpanish ? "/" : "/en"} class="flex items-center gap-2 group">
+      <a href={isSpanish ? `${base}/` : `${base}/en`} class="flex items-center gap-2 group">
         <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-primary to-orange-400 flex items-center justify-center text-white font-bold text-lg shadow-lg group-hover:scale-105 transition-transform">
           VP
         </div>
@@ -61,6 +62,19 @@ const togglePath = isSpanish ? '/en' : '/';
 <script>
   // Theme Toggle Logic
   const themeToggle = document.getElementById('theme-toggle');
+  
+  // Default to Light Mode
+  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    // Check if user explicitly set dark, otherwise default to light even if system is dark (as per user request)
+    if (localStorage.theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+
   themeToggle?.addEventListener('click', () => {
     document.documentElement.classList.toggle('dark');
     const isDark = document.documentElement.classList.contains('dark');
